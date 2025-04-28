@@ -67,7 +67,7 @@ def forward_gpt2(
     ## Add by DiffuGPT, adapting for 4d attention-mask.
     if attention_mask is not None and len(attention_mask.shape) == 4: 
         attention_mask = attention_mask
-        print("logging....attention-mask for 4d")
+        # print("logging....attention-mask for 4d")
     else:
         _use_sdpa = self._attn_implementation == "sdpa" and output_attentions is False and head_mask is None
         attention_mask = attention_mask.view(batch_size, -1) if attention_mask is not None else None
@@ -304,7 +304,7 @@ def forward_llama2fa2(
 
     ## Add by DiffuLLaMA, adapting for 4d attention-mask.
     if attention_mask is not None and attention_mask.dim() == 4:
-        print("logging....attention-mask for 4d, fa2")
+        # print("logging....attention-mask for 4d, fa2")
         attention_mask = None
         self.is_causal = False
 
@@ -385,7 +385,7 @@ def forward_llama2(
     ## Add by DiffuLLaMA, adapting for 4d attention-mask.
     if attention_mask is not None and len(attention_mask.shape) == 4:
         causal_mask = attention_mask
-        print("logging....attention-mask for 4d")
+        # print("logging....attention-mask for 4d")
     else:
         causal_mask = self._update_causal_mask(
             attention_mask, inputs_embeds, cache_position, past_key_values, output_attentions
