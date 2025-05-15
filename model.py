@@ -83,7 +83,7 @@ def generate_samples(model, diff_args, tokenizer, inputs, verbose=False):
     """
     # model.cuda()
     model.eval()
-    print("*** Start sampling, random keep...")
+    # print("*** Start sampling, random keep...")
 
     logits_temp = diff_args.logits_temp
     topp_temp = diff_args.topp_temp
